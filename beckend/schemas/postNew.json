@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "username":{
+            "type":"string"
+        },
+        "description": {
+            "type" : "string"    
+        },
+        "date_to":{
+            "type" :"string",
+            "minLength":5
+        },
+        "date_from":{
+            "type" :"string",
+            "minLength":5
+        },
+        "created_at":{
+            "type": "string",
+            "format": "date-time"
+        }
+    },
+    "required": 
+    [ "description"],
+    "additionalProperties": false
+}
