@@ -10,6 +10,7 @@ const commentNewSchema = require("../schemas/commentNew.json")
 const {ExpressError, NotFoundError,UnauthorizedError,BadRequestError,ForbiddenError} =
         require("../expressError")
 
+// this route will post new post if post schema is valid
 router.post("/new", async function(req,res,next) {
     try{
         const validator = jsonschema.validate(req.body,postNewSchema)
@@ -28,6 +29,7 @@ router.post("/new", async function(req,res,next) {
     }
 })
 
+//this is get route will return {allposts}
 router.get('/', async function(req,res,next){
     try{
         const posts = await Post.getAllPosts()
@@ -37,6 +39,7 @@ router.get('/', async function(req,res,next){
     }    
 })
 
+//GET/:id =>{post}
 router.get('/:id', async function(req,res,next){
     try{
         const post = await Post.getSinglePost(req.params.id)
@@ -45,6 +48,8 @@ router.get('/:id', async function(req,res,next){
         return next(err)
     }
 })
+
+//GET/:id/comments will give [allcomments]
 router.get('/:id/comments',async function(req,res,next){
     try{
         const comments = await Comment.getAllComments(req.params.id)
@@ -53,6 +58,8 @@ router.get('/:id/comments',async function(req,res,next){
         return next(err)
     }
 })
+
+//POST/id/newcomment => this will post new comment on post
 router.post('/:id/newcomment', async function(req,res,next){
     try{
         const validator = jsonschema.validate(req.body,commentNewSchema)

@@ -13,6 +13,7 @@ function App() {
   const [currentUserName, setCurrentUserName] = useState(localStorage.getItem('username') ||'')
   const [err,setErr]=useState(null)
  
+  //gets token from localStorage if has and sets in token
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -20,6 +21,7 @@ function App() {
       setToken(token);
     }
   }, []);
+  //gets the token on loggedin user and then store it in localstorage and sets in useState 
   async function loginUser(data){
     try{
       let token = await PetsApi.login(data)
@@ -41,7 +43,7 @@ function App() {
 }
 
 
-
+  //gets the token on registered user and then store it in localstorage and sets in useState
   async function registerUser(data){
     try{
       let token = await PetsApi.register(data)

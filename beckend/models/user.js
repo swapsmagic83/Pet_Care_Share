@@ -77,7 +77,7 @@ class User {
             return user
             
     }
-
+//finadAll gets all the user
     static async findAll(){
         const result = await db.query(
             `select username,
@@ -89,7 +89,7 @@ class User {
         )
         return result.rows
     }
-
+//getUserId will take username input and will get user_id where username=input username 
     static async getUserId(username){
         const result = await db.query(
                     `select id
@@ -100,7 +100,7 @@ class User {
         )
         return result.rows[0]
     }
-
+//getUser method with take username input and will return user object will all details
     static async getUser(username){
         const result = await db.query(
             `select username,

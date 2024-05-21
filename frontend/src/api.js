@@ -31,49 +31,52 @@ class PetsApi {
           throw Array.isArray(message) ? message : [message];
         }
       }
-    
+    //sets token
       static async setToken(token) {
         this.token = token
       }
 
       // Individual API routes
+      //registers user//
       static async register(data){
         let res = await this.request(`auth/register`,data,"post",false)
         this.token =res.token
         return res.token
       }
-
+      //user login//
       static async login(data){
         let res = await this.request(`auth/token`,data,"post",false)
         this.token =res.token
         return res.token
       }
-
+      //gets all the posts//
       static async getAllPosts(){
         let res = await this.request(`posts`)
         return res.posts
       }
-
+      //takes id input and gives single post of that id 
       static async getSinglePost(id){
         let res = await this.request(`posts/${id}`)
         return res.post
       }
       
+      //takes (username,description,date_to,date_from) input and give post
       static async addNewPost(username, description, date_to, date_from){
         let newData = {username, description, date_from, date_to}
         let res = await this.request(`posts/new`,newData,"post")
         return res.post
       }
+      //takes username and gives user_id
       static async getUserIdFromUserName(username){
         let res = await this.request(`users/${username}`)
         return res.id
       }
-
+      //takes post_id and gives comments of post with that id
       static async getAllCommentsOfPost(post_id){
         let res = await this.request(`posts/${post_id}/comments`)
         return res[0]
       }
-
+      //takes(username,post_id,content) and adds new comment
       static async addNewCommentToPost(username,post_id,content){
         let res = await this.request(`posts/${post_id}/newcomment`,{username,content},"post")
         return res.comment
