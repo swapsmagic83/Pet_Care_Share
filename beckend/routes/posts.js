@@ -11,7 +11,6 @@ const {ExpressError, NotFoundError,UnauthorizedError,BadRequestError,ForbiddenEr
         require("../expressError")
 
 router.post("/new", async function(req,res,next) {
-    console.log("this is req.body before",req.body)
     try{
         const validator = jsonschema.validate(req.body,postNewSchema)
         if(!validator.valid){

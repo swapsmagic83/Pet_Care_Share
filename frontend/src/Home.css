@@ -1,0 +1,26 @@
+.App {
+    
+    background-image: url('https://images.freeimages.com/images/large-previews/bf5/playing-dogs-1404706.jpg');
+    background-size: cover;
+    height: 700px;
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.NavBar {
+    background-color: black;
+    padding: 10px;
+}
+.NavBar-NavLink {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 100px;
+   
+}
+.Home{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    
+}

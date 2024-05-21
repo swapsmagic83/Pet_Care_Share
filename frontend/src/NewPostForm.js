@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import PetsApi from "./api";
+import './Form.css'
 
 const NewPostForm = ({addPost,username}) =>{
     const initial_state ={description:"", date_from:"",date_to:""}
@@ -21,33 +22,41 @@ const NewPostForm = ({addPost,username}) =>{
 
     return (
         <>
-        <h1>Add New Post Here {username}</h1>
+        <div className="SignUpForm NewPostForm">
+
+        
+        <h1 className="h1">Add New Post Here {username}</h1>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="description">Description</label>
+            <div className="input">
+            <label htmlFor="description" className="label">Description</label>
             <input
             id="description"
             name="description"
             type="text"
             value={formData.description}
-            onChange={handleChange}></input><br></br>
-
-            <label htmlFor="date_from">Date From</label>
+            onChange={handleChange}></input>
+            </div>
+            <div className="input">
+            <label htmlFor="date_from" className="label">Date From</label>
             <input
             id="date_from"
             name="date_from"
             type="text"
             value={formData.date_from}
-            onChange={handleChange}></input><br></br>
-
-            <label htmlFor="date_to">Date To</label>
+            onChange={handleChange}></input>
+            </div>
+            <div className="input">
+            <label htmlFor="date_to" className="label">Date To</label>
             <input
             id="date_to"
             name="date_to"
             type="text"
             value={formData.date_to}
-            onChange={handleChange}></input><br></br>
-            <button>Submit</button>
+            onChange={handleChange}></input>
+            </div>
+            <button className="button">Submit</button>
         </form>
+        </div>
         </>
     )
 

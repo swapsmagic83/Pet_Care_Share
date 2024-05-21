@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import { Navigate } from "react-router-dom";
+import './Form.css'
 
 const LoginForm = ({loginUser}) =>{
     const initial_state ={}
@@ -24,25 +25,32 @@ const LoginForm = ({loginUser}) =>{
         return <Navigate usename={formData.usename} to='/'/>
     }
     return(
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username</label>
+        <div className="LoginForm">
+            <h1 className="h1">Login Here</h1>
+        <form onSubmit={handleSubmit}  >
+            <div className="input">
+            <label htmlFor="username" className="label">Username</label>
             <input
             id="username"
             name="username"
             type="text"
             value={formData.usename}
-            onChange={handleChange}></input>
-            <br></br>
-            <label htmlFor="password">Password</label>
+            onChange={handleChange}
+            ></input>
+           </div>
+           <div className="input">
+            <label htmlFor="password" className="label">Password</label>
             <input
             id="password"
             name="password"
             type="text"
             value={formData.password}
-            onChange={handleChange}></input>
-            <br></br>
-            <button>Submit</button>
+            onChange={handleChange}
+            ></input>
+            </div>
+            <button className="button" >Submit</button>
         </form>
+        </div>
     )
 }
 export default LoginForm

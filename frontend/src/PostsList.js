@@ -23,8 +23,8 @@ const PostsList = ({username}) =>{
         <>
         {isLoading ? (
             <p>Loading... </p> ):
-        (<div>
-            <h1>Posts list here {username}</h1>
+        (<div className="PostList">
+            <h1 className="PostList-h1" >Posts list here {username}</h1>
             {posts.map(post =>(
                 <PostCard 
                 key={post.id}

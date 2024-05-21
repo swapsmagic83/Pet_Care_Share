@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import NavBar from './NavBar';
 import RoutesList from './RoutesList';
 import PetsApi from './api';
+import './Home.css'
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
           logoutUser={logoutUser}
           addPost={addPost}
           />
+          <p style={{color:'red'}}><b>{err}</b></p>
      </BrowserRouter>
     </div>
   );

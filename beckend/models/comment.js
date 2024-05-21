@@ -27,7 +27,9 @@ class Comment {
                         on comments.user_id =
                         users.id
                         where 
-                        post_id = $1`,
+                        post_id = $1
+                        order by created_at 
+                        desc`,
                         [post_id]
         )
         const comments =result.rows

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './Post.css'
 
 const NewCommentForm = ({addNewComment}) =>{
     const initial_state = {comment:""}
@@ -18,14 +19,15 @@ const NewCommentForm = ({addNewComment}) =>{
     }
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="comment">Comment</label>
+            <label htmlFor="comment" className="comment"></label>
             <input
             id="comment"
             name="comment"
             type="text"
             value={formData.comment}
+            placeholder="Write comment..."
             onChange={handleChange}></input>
-            <button>Submit</button>
+            <button >Submit</button>
         </form>
     )
 }

@@ -22,7 +22,9 @@ class Post {
                     description, 
                     date_to, 
                     date_from
-                    from posts`
+                    from posts
+                    order by created_at
+                    desc`
         )
         const posts = result.rows
         return posts

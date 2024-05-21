@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import PetsApi from "./api";
 import NewCommentForm from "./NewCommentForm";
+import './Post.css'
 
 const PostDetails = ({username}) =>{
     let {id} = useParams()
@@ -41,17 +42,22 @@ const PostDetails = ({username}) =>{
         {isLoading ? (
             <p>Loading...</p>
         ) :
-        (<div>
-            <p>{username}</p>
-            <p>{post.description}</p>
-            <p>Date From: {post.date_from}</p>
-            <p>Date To: {post.date_to}</p>
-            <ul>
+        (<div className="PostDetail">
+            <div className="Post-p">
+            <p className="p">{post.description}</p>
+            <p className="p"><small>Date From: {post.date_from}</small></p>
+            <p className="p"><small>Date To: {post.date_to}</small></p>
+            </div>
+            <div className="Post-s">
+           <small style={{color:"red"}}>{comments.length} comments:</small>
+            {/* <ul> */}
+            {/* <small>{comments.length} comments</small> */}
             {comments.map((comment, index) => (
-              <li key={index}>{comment.username}: {comment.content}</li>
+              <small className="comment"  key={index}><b>{comment.username}</b>: {comment.content}</small>
             ))}
-          </ul>
+          {/* </ul> */}
           <NewCommentForm addNewComment={addNewComment} username={username} id={id}/>
+          </div>
         </div>)}
         </>
     )
